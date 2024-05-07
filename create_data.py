@@ -66,5 +66,5 @@ export_yolo_data(
     dataset,
     "data",
     classes_oi,
-    split = ["train", "val"]
+    split = ["train", "val","test"]
 )
