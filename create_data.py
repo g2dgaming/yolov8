@@ -40,8 +40,8 @@ def export_yolo_data(
 
 
 #classes_co=["person","car","bicycle","cat","dog"]
-classes_oi= ["Person", "Car", "Bicycle", "Cat", "Dog"]
-dataset=foz.load_zoo_dataset("open-images-v7", classes=classes_oi,max_samples=200,label_types=['detections'])
+classes_oi= ["Person", "Car", "Bicycle", "Cat", "Monkey","Building","Man","Woman","Tree","Plant","Vehicle","Motorcycle","Bus","Chair"]
+dataset=foz.load_zoo_dataset("open-images-v7", classes=classes_oi,max_samples=6000,label_types=['detections'])
 
 """
 finetuning_data = fo.Dataset.from_dir(
@@ -60,7 +60,7 @@ four.random_split(
 )"""
 four.random_split(
     dataset,
-    {"train": 0.8, "val": 0.2}
+    {"train": 0.66, "val": 0.34}
 )
 export_yolo_data(
     dataset,
