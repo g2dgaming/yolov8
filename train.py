@@ -1,15 +1,15 @@
-import torch
-if torch.backends.mps.is_available():
-    mps_device = torch.device("mps")
-    x = torch.ones(1, device=mps_device)
-    print (x)
-else:
-    print ("MPS device not found.")
 
-from ultralytics import YOLO
+if __name__ == '__main__':
+    import torch
 
-# Load a model
-model = YOLO('yolov8l-oiv7.pt')  # load a pretrained model (recommended for training)
+    device = torch.device("cuda:0")
+    x = torch.ones(1, device=device)
+    print("GPU Available: ", torch.cuda.is_available())
+    print(x)
+    from ultralytics import YOLO
 
-# Train the model with 2 GPUs
-results = model.train(data='data/dataset.yaml', epochs=30, imgsz=640, device='mps')
+    # Load a model
+    model = YOLO('runs/detect/train9/weights/best.pt')  # load a pretrained model (recommended for training)
+
+    # Train the model with 2 GPUs
+    results = model.train(data='yolov9_train/dataset.yaml', epochs=50, imgsz=640, device='cuda:0')

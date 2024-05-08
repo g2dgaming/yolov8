@@ -17,6 +17,8 @@ def export_yolo_data(
     if type(split) == list:
         splits = split
         for split in splits:
+            if(split == "val"):
+                split = "val"
             export_yolo_data(
                 samples,
                 export_dir,
@@ -43,28 +45,11 @@ def export_yolo_data(
 classes_oi= ["Person", "Car", "Bicycle", "Cat", "Monkey","Building","Man","Woman","Tree","Plant","Vehicle","Motorcycle","Bus","Chair"]
 dataset=foz.load_zoo_dataset("open-images-v7", classes=classes_oi,max_samples=6000,label_types=['detections'])
 
-"""
-finetuning_data = fo.Dataset.from_dir(
-    dataset_dir="custom_train",
-    dataset_type=fo.types.YOLOv5Dataset,
-    max_samples=max_samples,
-    classes=classes_oi
-)
-finetuning_data = finetuning_data.map_labels(
-    "ground_truth",
-    {"Person":"person","Car":"car","Bicycle":"bicycle","Cat":"cat","Dog":"dog"}
-)
-four.random_split(
-    finetuning_data,
-    {"train": 0.8, "val": 0.2}
-)"""
-four.random_split(
-    dataset,
-    {"train": 0.66, "val": 0.34}
-)
+session=fo.launch_app(dataset)
+session.wait()
 export_yolo_data(
     dataset,
     "data",
     classes_oi,
-    split = ["train", "val","test"]
+    split= ["train", "val","test"]
 )
