@@ -5,7 +5,6 @@ import fiftyone.utils.random as four
 from ultralytics import YOLO
 import fiftyone.utils.random as four
 
-max_samples=1000
 def export_yolo_data(
     samples,
     export_dir,
@@ -42,14 +41,11 @@ def export_yolo_data(
 
 
 #classes_co=["person","car","bicycle","cat","dog"]
-classes_oi= ["Person", "Car", "Bicycle", "Cat", "Monkey","Building","Man","Woman","Tree","Plant","Vehicle","Motorcycle","Bus","Chair"]
-dataset=foz.load_zoo_dataset("open-images-v7", classes=classes_oi,max_samples=6000,label_types=['detections'])
-
-session=fo.launch_app(dataset)
-session.wait()
+classes_oi= ["Person", "Car", "Bicycle", "Cat", "Dog"]
+dataset=foz.load_zoo_dataset("open-images-v7", classes=classes_oi,max_samples=500,label_types=['detections'])
 export_yolo_data(
     dataset,
-    "data",
+    "test_data",
     classes_oi,
-    split= ["train", "val","test"]
+    split= ["test"]
 )

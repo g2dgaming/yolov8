@@ -13,7 +13,7 @@ dataset = fo.Dataset.from_dir(
     max_samples=max_samples,
     classes=classes_oi
 )
-model=YOLO("best.pt")
+model=YOLO("yolov8n-oiv7.pt")
 dataset.apply_model(model,label_type="prediction")
 
 session = fo.launch_app(dataset)

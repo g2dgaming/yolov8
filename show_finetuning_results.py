@@ -1,4 +1,3 @@
-import fiftyone as fo
 from ultralytics import YOLO
 # The directory containing the dataset to import
 dataset_dir = "yolo_predicted"
