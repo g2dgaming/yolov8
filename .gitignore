@@ -1,3 +1,5 @@
 /runs/
 /custom_train/
 /data/
+/test_data/
+/yolo_predicted/
