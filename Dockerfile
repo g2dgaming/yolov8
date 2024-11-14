@@ -1,5 +1,5 @@
 # Use the x86 Ubuntu base image (for building)
-FROM --platform=linux/amd64 ubuntu:18.04
+FROM ubuntu:22.04
 
 # Set environment variables for non-interactive apt-get
 ENV DEBIAN_FRONTEND=noninteractive
@@ -31,20 +31,14 @@ WORKDIR /app/YDLidar-SDK
 RUN mkdir build && cd build && cmake .. && make
 
 # Copy the rest of your Python project files into the container
-COPY . /app
+COPY yOLOV8 /app/yOLOV8
 
-# Copy your pre-built virtual environment (venv2) from local machine into the container
-COPY venv2 /app/venv2
+# Install Python dependencies from the requirements.txt file
+RUN pip3 install -r /app/requirements.txt
 
-# Set environment variables to use the virtual environment
-ENV VIRTUAL_ENV=/app/venv2
-ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-
-# Install Python dependencies from requirements.txt (if you have one)
-RUN pip3 install --no-cache-dir -r /app/requirements.txt
 
 # Now set the working directory to yOLOv8 for the final execution
 WORKDIR /app/yOLOv8
 
 # Run your Python script (run.py)
-CMD ["python", "run.py"]
+CMD ["python", "/app/yOLOv8/run.py"]
