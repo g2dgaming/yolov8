@@ -1,11 +1,11 @@
 import cv2
-import torch
 import threading
 import numpy as np
+from ultralytics import  YOLO
 from ydlidar import YdLidarX4  # Replace with your model's actual class from the SDK
 
 # Load YOLO model from PyTorch Hub
-model = torch.hub.load('ultralytics/yolov5', 'yolov5s')  # Replace with your fine-tuned YOLO model
+model = YOLO('yolov8n-oiv7.pt')  # Replace with your fine-tuned YOLO model
 
 # Initialize the camera
 cap = cv2.VideoCapture(0)  # Replace '0' with your camera ID
