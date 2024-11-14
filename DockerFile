@@ -1,0 +1,28 @@
+# Use the x86 architecture Ubuntu base image
+FROM --platform=linux/amd64 python:3.10-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Install system dependencies for building Python packages (if necessary)
+RUN apt-get update && \
+    apt-get install -y \
+    python3-dev \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy your project files into the container
+COPY . /app
+
+# Copy the virtual environment from your local machine (venv2 folder)
+COPY venv2 /app/venv2
+
+# Set environment variables to use the virtual environment
+ENV VIRTUAL_ENV=/app/venv2
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
+# Install project dependencies inside the virtual environment
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Set the command to run your Python script
+CMD ["python", "yOLOv8/run.py"]
