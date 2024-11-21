@@ -19,7 +19,7 @@
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/yOLOV8" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -89,6 +89,7 @@
       <workItem from="1727671873219" duration="8296000" />
       <workItem from="1731573356046" duration="11938000" />
       <workItem from="1732058274186" duration="13000" />
+      <workItem from="1732203710066" duration="268000" />
     </task>
     <task id="LOCAL-00001" summary="Improving">
       <option name="closed" value="true" />
@@ -130,7 +131,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731586337146</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Improving">
+      <option name="closed" value="true" />
+      <created>1732203724372</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732203724372</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Improving">
+      <option name="closed" value="true" />
+      <created>1732203784645</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732203784645</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
